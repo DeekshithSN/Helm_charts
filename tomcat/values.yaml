@@ -13,8 +13,8 @@
 ##
 image:
   registry: docker.io
-  repository: bitnami/tomcat
-  tag: 9.0.33-debian-10-r10
+  repository: deekshithsn/devops-training
+  tag: cf4839d60a8c7d7a8c4454a26ede6f14b9619468
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
