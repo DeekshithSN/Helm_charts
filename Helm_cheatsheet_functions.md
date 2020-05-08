@@ -98,11 +98,20 @@ usage:
       
 output:
 
-      apiVersion: v1
-      kind: ConfigMap
-      metadata:
-        name: trendsetting-p-configmap
-      data:
-        myvalue: "Hello World"
-        drink: "coffee"
-        food: "pizza"
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: trendsetting-p-configmap
+    data:
+      myvalue: "Hello World"
+      drink: "coffee"
+      food: "pizza"
+      
+
+## include 
+
+The include function allows you to bring in another template, and then pass the results to other template functions.
+
+For example, this template snippet includes a template called mytpl, then lowercases the result, then wraps that in double quotes.
+
+    value: {{ include "mytpl" . | lower | quote }}
