@@ -80,3 +80,29 @@ output:
         myvalue: "Hello World"
         drink: "coffee"
         food: "PIZZA"
+
+## 4. lower 
+
+converts given string to lowercase 
+
+usage:
+
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: {{ .Release.Name }}-configmap
+    data:
+      myvalue: "Hello World"
+      drink: {{ .Values.favorite.drink | quote }}
+      food: {{ .Values.favorite.food | lower | quote }}
+      
+output:
+
+      apiVersion: v1
+      kind: ConfigMap
+      metadata:
+        name: trendsetting-p-configmap
+      data:
+        myvalue: "Hello World"
+        drink: "coffee"
+        food: "pizza"
