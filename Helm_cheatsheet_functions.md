@@ -1,8 +1,7 @@
 # Helm functions and examples
 
-```diff
+
 - Note: the vaules.yaml for this is at https://github.com/DeekshithSN/Helm_charts/blob/master/Tem_functions/values.yaml 
-```
 
  ## 1. quote 
  
