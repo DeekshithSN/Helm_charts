@@ -1,5 +1,9 @@
 # Helm functions and examples
 
+```diff
+- Note: the vaules.yaml for this is at https://github.com/DeekshithSN/Helm_charts/blob/master/Tem_functions/values.yaml 
+```
+
  ## 1. quote 
  
  wraps with double quotes to given string, if you give pizza as input the output will be "pizza"
@@ -25,7 +29,7 @@
     data:
       myvalue: "Hello World"
       drink: "coffee"
-      food: "PIZZA"
+      food: "Pizza"
       
  ## 2. repeat
  
