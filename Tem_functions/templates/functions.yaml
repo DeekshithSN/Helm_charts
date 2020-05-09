@@ -2,7 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
+  lables:
 data:
   myvalue: "Hello World"
-  drink: {{ .Values.favorite.drink }}
-  food: {{ .Values.favorite.food }}
+  drink: {{  .Values.favorite.drink }}
+  food: {{ quote .Values.favorite.food }}
+  city: {{.Values.favorite.city | default "Bangalore"}}
