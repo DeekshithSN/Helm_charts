@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  labels:
+    {{ template "mychart.app" . }}
+data:
+  myvalue: "Hello World"
+  {{- range $key, $val := .Values.favorite }}
+  {{ $key }}: {{ $val | quote }}
+  {{- end }}
+{{ template "mychart.app" . | nindent 2}}
