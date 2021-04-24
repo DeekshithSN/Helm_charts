@@ -5,6 +5,7 @@ metadata:
   lables:
 data:
   myvalue: "Hello World"
+  who: {{ required "A valid .Values.who entry required!" .Values.who }}
   drink: {{  .Values.favorite.drink }}
   food: {{ quote .Values.favorite.food }}
   city: {{.Values.favorite.city | default "Bangalore"}}
