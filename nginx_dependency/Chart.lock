@@ -1,0 +1,9 @@
+dependencies:
+- name: apache
+  repository: https://charts.bitnami.com/bitnami
+  version: 8.5.2
+- name: mysql
+  repository: https://charts.bitnami.com/bitnami
+  version: 8.5.5
+digest: sha256:04e576889868d2e82be5e42de3a6ab0797e72a69a6cd27a7692ad2f4e19fa4ca
+generated: "2021-04-24T10:59:30.863283783Z"
