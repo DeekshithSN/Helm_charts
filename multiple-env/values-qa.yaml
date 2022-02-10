@@ -1,0 +1,6 @@
+configfilename: application.proprties
+env: qa
+imagename: nginx
+
+hpa:
+  enabled: false

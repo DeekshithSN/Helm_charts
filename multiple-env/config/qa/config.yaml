@@ -1,0 +1,6 @@
+timeout: 5s
+logs: /var/log/app.log
+dbip: 24.60.133.25
+activeconnections: 30
+xms: 4G
+xmx: 8G

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+  labels:
+    app: mysql
+data:
+  {{ .Values.configfilename }}: |
+{{ $path := (printf "config/%v/config.yaml" .Values.env )}}
+{{ .Files.Get $path | indent 4 }}
