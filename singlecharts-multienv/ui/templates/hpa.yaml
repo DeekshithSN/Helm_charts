@@ -1,0 +1,15 @@
+{{- if .Values.hpa.enabled -}}
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    {{- include "ui.labels" . | nindent 4 }}
+spec:
+  maxReplicas: {{ .Values.hpa.maxreplicas }}
+  minReplicas: {{ .Values.hpa.minrplicas }}
+  scaleTargetRef:
+    apiVersion: extensions/v1
+    kind: Deployment
+    name: react-ui
+  targetCPUUtilizationPercentage: {{ .Values.hpa.cuputi }}
+{{- end -}}

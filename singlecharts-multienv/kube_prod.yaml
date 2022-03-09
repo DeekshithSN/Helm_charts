@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ui-service
+  labels:
+    app: react-ui
+    env: prod
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: react-ui
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-ui
+  labels:
+    app: react-ui
+    env: prod
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: react-ui
+  template:
+    metadata:
+      labels:
+        app: react-ui
+        env: prod
+    spec:
+      containers:
+        - name: react-ui
+          image: deekshithsn/ui
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 1
+              memory: 2Gi
+            requests:
+              cpu: 1 
+              memory: 2Gi
+
+---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    app: react-ui
+    env: prod
+spec:
+  maxReplicas: 10
+  minReplicas: 4
+  scaleTargetRef:
+    apiVersion: extensions/v1
+    kind: Deployment
+    name: react-ui
+  targetCPUUtilizationPercentage: 50

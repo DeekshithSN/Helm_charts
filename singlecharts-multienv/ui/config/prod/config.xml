@@ -1,0 +1,9 @@
+<receivers>
+  <topic>
+    <options type="receiver">
+      <option name="ordered_delivery" order="deny,allow">
+        <deny>1</deny>
+      </option>
+    </options>
+  </topic>
+</receivers>

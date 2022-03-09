@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: react-ui-config-xml
+  labels:
+     {{- include "ui.labels" . | nindent 4 }}
+data:
+  {{ .Values.configxml.name }}: |
+  {{ $path := ( printf "config/%v/config.xml"  .Values.app.env ) }}
+  {{ .Files.Get $path | nindent 4 }}

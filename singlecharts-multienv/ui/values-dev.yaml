@@ -1,0 +1,29 @@
+app:
+  replicas: 1
+  env: dev
+  container:
+    image: deekshithsn/ui
+  computerc:
+    limits:
+      cpu: 0.2
+      memory: 500Mi
+    requests:
+      cpu: 0.2
+      memory: 500Mi
+
+hpa:
+  enabled: false
+
+
+config:
+  name: config.yaml
+  data: 
+    timeout: 10s
+    logfile: /app/var/log.txt
+    database:
+      ip: 10.20.30.20
+      name: ui-dev 
+
+
+configxml:
+  name: app.xml

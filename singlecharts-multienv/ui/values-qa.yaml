@@ -1,0 +1,28 @@
+app:
+  replicas: 2
+  env: qa
+  container:
+    image: deekshithsn/ui
+  computerc:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 1
+      memory: 2Gi
+
+hpa:
+  enabled: false
+
+
+config:
+  name: config.yaml
+  data: 
+    timeout: 5s
+    logfile: /app/var/log.txt
+    database:
+      ip: 120.21.31.10
+      name: ui-qa 
+
+configxml:
+  name: app.xml

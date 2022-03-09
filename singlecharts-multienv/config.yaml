@@ -1,0 +1,5 @@
+timeout: 10s
+logfile: /app/var/log.txt
+database:
+  ip: 10.20.30.20
+  name: ui-dev 

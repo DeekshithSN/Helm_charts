@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-ui-dep
+  labels:
+  {{- include "ui.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      app: react-ui
+  template:
+    metadata:
+      labels:
+        {{- include "ui.labels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: react-ui
+          image: {{ .Values.app.container.image }}
+          imagePullPolicy: IfNotPresent
+          resources:
+           {{- toYaml .Values.app.computerc | nindent 12 }}

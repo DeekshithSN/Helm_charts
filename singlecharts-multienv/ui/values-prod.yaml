@@ -1,0 +1,31 @@
+app:
+  replicas: 6
+  env: prod
+  container:
+    image: deekshithsn/ui
+  computerc:
+    limits:
+      cpu: 4
+      memory: 16Gi
+    requests:
+      cpu: 4
+      memory: 16Gi
+
+hpa:
+  enabled: true
+  maxreplicas: 10
+  minrplicas: 4
+  cuputi: 90
+
+config:
+  name: config.yaml
+  data: 
+    timeout: 2s
+    logfile: /app/var/log.txt
+    database:
+      ip: 120.21.31.10
+      name: ui-prod 
+
+
+configxml:
+  name: app.xml
