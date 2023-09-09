@@ -1,0 +1,9 @@
+dependencies:
+- name: mysql
+  repository: https://helm.wso2.com
+  version: 1.6.9
+- name: jenkins
+  repository: https://charts.jenkins.io
+  version: 3.5.2
+digest: sha256:b52b2c49931c7771e9af5d0b66759c4887ffbf3bea320b430749c675dab048b5
+generated: "2023-09-09T09:20:43.7768075+05:30"

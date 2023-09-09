@@ -1,0 +1,18 @@
+{{- if .Values.hpa -}}
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+{{ $releasens := .Release.Namespace }}
+{{- with .Values.hpa }}
+metadata:
+  name: {{ .name }}
+  namespace: {{ $releasens }}
+spec:
+  maxReplicas: {{ .maxReplicas }}
+  minReplicas: {{ .minReplicas }}
+  scaleTargetRef:
+    apiVersion: extensions/v1
+    kind: Deployment
+    name: {{ .name }}
+  targetCPUUtilizationPercentage: {{ .targetCPUUtilizationPercentage }}
+{{- end -}}
+{{- end -}} 

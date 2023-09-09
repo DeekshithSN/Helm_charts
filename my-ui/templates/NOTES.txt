@@ -1,0 +1,3 @@
+this is the output you will get 
+
+service created is {{ .Release.Name }}-svc

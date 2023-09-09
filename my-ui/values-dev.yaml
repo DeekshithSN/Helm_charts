@@ -1,0 +1,16 @@
+
+replicas: 2
+
+image: 
+  name: nginx
+  tag: latest
+
+ports:
+  httpPort: 80
+
+appname: nginx
+
+env:
+  postgresdbKey: POSTGRES_DB_name
+  postgresdbValue: ADMIN
+

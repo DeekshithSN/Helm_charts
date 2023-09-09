@@ -1,0 +1,41 @@
+
+replicas: 2
+
+image: 
+  name: nginx-prod
+  tag: latest
+
+ports:
+  httpPort: 80
+
+appname: nginx
+
+env:
+  postgresdbKey: POSTGRES_DB_name
+  postgresdbValue: ADMIN
+  
+hpa:
+  name: node-example
+  maxReplicas: 4 
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 50 
+  
+probes:
+  livenessProbe:
+    httpGet:
+      path: /health
+      port: 8080
+    initialDelaySeconds: 30
+    periodSeconds: 5
+    successThreshold: 1
+    failureThreshold: 3
+    timeoutSeconds: 1  
+  readinessProbe:
+    httpGet:
+      path: /health
+      port: 8080
+    initialDelaySeconds: 30
+    periodSeconds: 5
+    successThreshold: 1
+    failureThreshold: 3
+    timeoutSeconds: 1
